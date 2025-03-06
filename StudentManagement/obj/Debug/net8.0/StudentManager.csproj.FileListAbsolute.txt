@@ -150,3 +150,4 @@ C:\Users\baba_\source\repos\StudentManager\StudentManager\obj\Debug\net8.0\refin
 C:\Users\baba_\source\repos\StudentManager\StudentManager\obj\Debug\net8.0\StudentManager.pdb
 C:\Users\baba_\source\repos\StudentManager\StudentManager\obj\Debug\net8.0\StudentManager.genruntimeconfig.cache
 C:\Users\baba_\source\repos\StudentManager\StudentManager\obj\Debug\net8.0\ref\StudentManager.dll
+C:\Users\baba_\source\repos\StudentManager\StudentManager\obj\Debug\net8.0\StudentManager.sourcelink.json

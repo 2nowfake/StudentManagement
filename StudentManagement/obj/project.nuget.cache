@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xNtHtg/LoWY=",
+  "dgSpecHash": "pgxAf8aZIhA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\baba_\\source\\repos\\StudentManager\\StudentManager\\StudentManager.csproj",
+  "projectFilePath": "C:\\Users\\baba_\\source\\repos\\StudentManagement\\StudentManagement\\StudentManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\baba_\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\baba_\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
