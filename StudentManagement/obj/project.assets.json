@@ -4741,11 +4741,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\baba_\\source\\repos\\StudentManager\\StudentManager\\StudentManager.csproj",
-      "projectName": "StudentManager",
-      "projectPath": "C:\\Users\\baba_\\source\\repos\\StudentManager\\StudentManager\\StudentManager.csproj",
+      "projectUniqueName": "C:\\Users\\baba_\\source\\repos\\StudentManagement\\StudentManagement\\StudentManagement.csproj",
+      "projectName": "StudentManagement",
+      "projectPath": "C:\\Users\\baba_\\source\\repos\\StudentManagement\\StudentManagement\\StudentManagement.csproj",
       "packagesPath": "C:\\Users\\baba_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\baba_\\source\\repos\\StudentManager\\StudentManager\\obj\\",
+      "outputPath": "C:\\Users\\baba_\\source\\repos\\StudentManagement\\StudentManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
