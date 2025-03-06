@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using StudentManager.Data;
+using StudentManagement.Data;
 
 #nullable disable
 
-namespace StudentManager.Migrations
+namespace StudentManagement.Migrations
 {
     [DbContext(typeof(SchoolContext))]
     [Migration("20250306181443_InitialCreate")]
