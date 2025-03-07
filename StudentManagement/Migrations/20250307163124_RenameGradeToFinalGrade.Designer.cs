@@ -12,8 +12,8 @@ using StudentManagement.Data;
 namespace StudentManagement.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20250307142306_AddInstructorRelation")]
-    partial class AddInstructorRelation
+    [Migration("20250307163124_RenameGradeToFinalGrade")]
+    partial class RenameGradeToFinalGrade
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,7 +61,7 @@ namespace StudentManagement.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Grade")
+                    b.Property<string>("FinalGrade")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
