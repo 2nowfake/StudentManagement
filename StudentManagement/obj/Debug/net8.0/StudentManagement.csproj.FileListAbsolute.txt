@@ -305,3 +305,4 @@ C:\Users\baba_\source\repos\StudentManagement\StudentManagement\bin\Debug\net8.0
 C:\Users\baba_\source\repos\StudentManagement\StudentManagement\obj\Debug\net8.0\StudentM.FBDC7194.Up2Date
 C:\Users\baba_\source\repos\StudentManagement\StudentManagement\obj\Debug\net8.0\StudentManagement.genruntimeconfig.cache
 C:\Users\baba_\source\repos\StudentManagement\StudentManagement\obj\Debug\net8.0\ref\StudentManagement.dll
+C:\Users\dpetk\RiderProjects\StudentManagement\StudentManagement\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
