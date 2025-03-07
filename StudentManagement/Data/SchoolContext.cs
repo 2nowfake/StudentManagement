@@ -39,6 +39,16 @@ namespace StudentManagement.Data
                 .HasOne(c => c.Instructor)
                 .WithMany(i => i.Courses)
                 .HasForeignKey(c => c.InstructorId);
+            
+            modelBuilder.Entity<Department>()
+                .HasOne(d => d.DepartmentHead)
+                .WithMany(i => i.HeadOfDepartments)
+                .HasForeignKey(d => d.DepartmentHeadId);
+
+            modelBuilder.Entity<Course>()
+                .HasOne(c => c.Department)
+                .WithMany(d => d.Courses)
+                .HasForeignKey(c => c.DepartmentId);
         }
     }
 }
