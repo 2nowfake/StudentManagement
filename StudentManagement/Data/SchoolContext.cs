@@ -34,12 +34,12 @@ namespace StudentManagement.Data
                 .HasOne(e => e.Course)
                 .WithMany(c => c.Enrollments)
                 .HasForeignKey(e => e.CourseId);
-            
+
             modelBuilder.Entity<Course>()
                 .HasOne(c => c.Instructor)
                 .WithMany(i => i.Courses)
                 .HasForeignKey(c => c.InstructorId);
-            
+
             modelBuilder.Entity<Department>()
                 .HasOne(d => d.DepartmentHead)
                 .WithMany(i => i.HeadOfDepartments)
@@ -49,6 +49,10 @@ namespace StudentManagement.Data
                 .HasOne(c => c.Department)
                 .WithMany(d => d.Courses)
                 .HasForeignKey(c => c.DepartmentId);
+
+            modelBuilder.Entity<Course>()
+                .Property(c => c.Credits)
+                .HasColumnType("decimal(5,2)");
         }
     }
 }
