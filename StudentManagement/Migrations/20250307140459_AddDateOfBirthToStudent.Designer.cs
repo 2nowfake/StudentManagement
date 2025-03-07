@@ -12,7 +12,7 @@ using StudentManagement.Data;
 namespace StudentManagement.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20250306214320_AddDateOfBirthToStudent")]
+    [Migration("20250307140459_AddDateOfBirthToStudent")]
     partial class AddDateOfBirthToStudent
     {
         /// <inheritdoc />
@@ -80,6 +80,9 @@ namespace StudentManagement.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -93,6 +96,9 @@ namespace StudentManagement.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MiddleName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
