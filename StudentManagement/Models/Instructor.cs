@@ -10,5 +10,6 @@
 
         // Navigation property
         public ICollection<Course> Courses { get; set; }
+        public ICollection<Department> HeadOfDepartments { get; set; }
     }
 }
