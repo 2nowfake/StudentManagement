@@ -11,6 +11,11 @@ namespace StudentManagement.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.RenameColumn(
+                name: "Grade",
+                table: "Enrollments",
+                newName: "FinalGrade");
+
             migrationBuilder.AddColumn<int>(
                 name: "InstructorId",
                 table: "Courses",
@@ -63,6 +68,11 @@ namespace StudentManagement.Migrations
             migrationBuilder.DropColumn(
                 name: "InstructorId",
                 table: "Courses");
+
+            migrationBuilder.RenameColumn(
+                name: "FinalGrade",
+                table: "Enrollments",
+                newName: "Grade");
         }
     }
 }
