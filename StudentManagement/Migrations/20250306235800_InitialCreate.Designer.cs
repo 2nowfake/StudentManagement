@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using StudentManager.Data;
+using StudentManagement.Data;
 
 #nullable disable
 
-namespace StudentManager.Migrations
+namespace StudentManagement.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20250306210015_AddMiddleNameToStudent")]
-    partial class AddMiddleNameToStudent
+    [Migration("20250306235800_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace StudentManager.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("StudentManager.Models.Course", b =>
+            modelBuilder.Entity("StudentManagement.Models.Course", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace StudentManager.Migrations
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("StudentManager.Models.Enrollment", b =>
+            modelBuilder.Entity("StudentManagement.Models.Enrollment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -72,7 +72,7 @@ namespace StudentManager.Migrations
                     b.ToTable("Enrollments");
                 });
 
-            modelBuilder.Entity("StudentManager.Models.Student", b =>
+            modelBuilder.Entity("StudentManagement.Models.Student", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,23 +95,20 @@ namespace StudentManager.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MiddleName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("StudentManager.Models.Enrollment", b =>
+            modelBuilder.Entity("StudentManagement.Models.Enrollment", b =>
                 {
-                    b.HasOne("StudentManager.Models.Course", "Course")
+                    b.HasOne("StudentManagement.Models.Course", "Course")
                         .WithMany("Enrollments")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("StudentManager.Models.Student", "Student")
+                    b.HasOne("StudentManagement.Models.Student", "Student")
                         .WithMany("Enrollments")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -122,12 +119,12 @@ namespace StudentManager.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("StudentManager.Models.Course", b =>
+            modelBuilder.Entity("StudentManagement.Models.Course", b =>
                 {
                     b.Navigation("Enrollments");
                 });
 
-            modelBuilder.Entity("StudentManager.Models.Student", b =>
+            modelBuilder.Entity("StudentManagement.Models.Student", b =>
                 {
                     b.Navigation("Enrollments");
                 });
