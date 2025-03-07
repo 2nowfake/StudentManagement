@@ -12,8 +12,8 @@ using StudentManagement.Data;
 namespace StudentManagement.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20250306214320_AddDateOfBirthToStudent")]
-    partial class AddDateOfBirthToStudent
+    [Migration("20250306235800_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
