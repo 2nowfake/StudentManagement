@@ -12,8 +12,8 @@ using StudentManagement.Data;
 namespace StudentManagement.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20250306210015_AddMiddleNameToStudent")]
-    partial class AddMiddleNameToStudent
+    [Migration("20250307142306_AddInstructorRelation")]
+    partial class AddInstructorRelation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace StudentManagement.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("StudentManager.Models.Course", b =>
+            modelBuilder.Entity("StudentManagement.Models.Course", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,16 +36,21 @@ namespace StudentManagement.Migrations
                     b.Property<int>("Credits")
                         .HasColumnType("int");
 
+                    b.Property<int?>("InstructorId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("InstructorId");
+
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("StudentManager.Models.Enrollment", b =>
+            modelBuilder.Entity("StudentManagement.Models.Enrollment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -72,13 +77,44 @@ namespace StudentManagement.Migrations
                     b.ToTable("Enrollments");
                 });
 
-            modelBuilder.Entity("StudentManager.Models.Student", b =>
+            modelBuilder.Entity("StudentManagement.Models.Instructor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("HireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Instructor");
+                });
+
+            modelBuilder.Entity("StudentManagement.Models.Student", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -103,15 +139,24 @@ namespace StudentManagement.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("StudentManager.Models.Enrollment", b =>
+            modelBuilder.Entity("StudentManagement.Models.Course", b =>
                 {
-                    b.HasOne("StudentManager.Models.Course", "Course")
+                    b.HasOne("StudentManagement.Models.Instructor", "Instructor")
+                        .WithMany("Courses")
+                        .HasForeignKey("InstructorId");
+
+                    b.Navigation("Instructor");
+                });
+
+            modelBuilder.Entity("StudentManagement.Models.Enrollment", b =>
+                {
+                    b.HasOne("StudentManagement.Models.Course", "Course")
                         .WithMany("Enrollments")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("StudentManager.Models.Student", "Student")
+                    b.HasOne("StudentManagement.Models.Student", "Student")
                         .WithMany("Enrollments")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -122,12 +167,17 @@ namespace StudentManagement.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("StudentManager.Models.Course", b =>
+            modelBuilder.Entity("StudentManagement.Models.Course", b =>
                 {
                     b.Navigation("Enrollments");
                 });
 
-            modelBuilder.Entity("StudentManager.Models.Student", b =>
+            modelBuilder.Entity("StudentManagement.Models.Instructor", b =>
+                {
+                    b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("StudentManagement.Models.Student", b =>
                 {
                     b.Navigation("Enrollments");
                 });
